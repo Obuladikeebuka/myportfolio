@@ -1,0 +1,610 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #6c2bd9;
+  --primary-dark: #4c1a9d;
+  --light: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  /* background: #fff; */
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Hidden background image layer (only visible while About is in view) */
+.body-about-bg {
+  position: fixed;
+  inset: 0;
+  background: url("/assets/images/frontendnew.jpg") center/cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s ease;
+  z-index: -1;
+}
+
+/* Header */
+header {
+  background: transparent;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background .4s ease;
+}
+
+header.scrolled {
+  background: var(--primary);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  transition: .3s;
+}
+
+nav a.active {
+  color: #fffd;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  background: var(--light);
+  transition: .3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.emoji {
+  display: inline-block;
+  animation: waveHand 2s infinite;
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project-card {
+  animation: slideInCard .8s ease forwards;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(108, 43, 217, .8), rgba(76, 26, 157, .8)), url("/assets/images/smilepic.jpeg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  animation: typing 3s steps(30) 1 forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+}
+
+@keyframes typing {
+  0% {
+    width: 0
+  }
+
+  100% {
+    width: 100%
+  }
+}
+
+@keyframes waveHand {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Sections */
+.section {
+  max-width: 1100px;
+  margin: 5rem auto;
+  padding: 3rem 2rem;
+  background: var(--light); 
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: .6s;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === About Sticky Image === */
+.about-section {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  overflow: hidden;
+  z-index: 1;
+  color: white;
+  background: linear-gradient(to bottom, #6c2bd9, #4c1a9d);
+}
+
+.about-section::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: var(--primary-dark);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: -1;
+}
+
+.about-section.show-bg::before {
+  opacity: 1;
+}
+
+.about-content {
+  flex: 1;
+  z-index: 1;
+}
+
+.about-content h2{
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+
+/* === Skills Section Background === */
+.skills-section {
+  background: url("/assets/images/frontendnew.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.skills-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 0;
+}
+
+/* === Skill reveal animation === */
+.skill {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: 0.7s;
+  position: relative;
+  z-index: 1;
+}
+
+.skill.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.skill .bar {
+  width: 0%;
+  transition: width 1s ease 0.4s;
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+}
+
+.skill.visible .bar.html {
+  width: 90%;
+}
+
+.skill.visible .bar.css {
+  width: 80%;
+}
+
+.skill.visible .bar.js {
+  width: 60%;
+}
+
+.skill-bar {
+  background: #ddd;
+  border-radius: 30px;
+  overflow: hidden;
+  height: 15px;
+}
+
+/* === Skills Carousel (Dark Background) === */
+.skills-section-carousel {
+  background: var(--primary-dark);
+  color: #fff;
+  overflow: hidden;
+}
+
+.skills-carousel-track {
+  display: flex;
+  gap: 3rem;
+  animation: autoSlide 20s linear infinite;
+  align-items: center;
+}
+
+.skill-slide {
+  min-width: 230px;
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.skill-slide img,
+.skill-slide i {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+@keyframes autoSlide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* add more for extra skills like .bar.react, .bar.git etc */
+/* Projects section patterned background */
+#projects {
+  background:
+      url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png");
+  background-repeat: repeat;
+  background-size: auto, 120px 120px;
+}
+
+/* Contact section patterned background */
+#contact {
+  background:
+    url("https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png");
+  background-repeat: repeat;
+  background-size: auto, 120px 120px;
+}
+
+/* Carousel */
+#projects .carousel-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+
+/* Small preview in the carousel */
+.project-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  /* <-- Circle */
+}
+
+/* Large image in the modal */
+.modal-content img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  /* <-- Square with soft rounded corners */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background .3s;
+}
+
+.carousel-btn.left {
+  left: 0.5rem;
+}
+
+.carousel-btn.right {
+  right: 0.5rem;
+}
+
+.carousel-btn:hover {
+  background: var(--primary-dark);
+}
+
+.project-card {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  width: 250px;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Projects Section Sticky Background (Right side) ===== */
+.projects-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background image that only shows while .projects-section is in view */
+.projects-section::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* <-- Right side only   */
+  width: 40vw;
+  /* <-- Width of the sticky image area */
+  height: 100vh;
+  /* background: url("/assets/images/frontend\ new.jpg") center right/cover no-repeat; */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: -1;
+}
+
+.projects-section.show-bg::before {
+  opacity: 1;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  text-align: left;
+  animation: scaleIn .4s ease both;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Contact */
+#contact form {
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border .3s;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border: 1px solid var(--primary);
+}
+
+form button {
+  padding: 0.75rem 2rem;
+  background: var(--primary);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+form button:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient( to bottom, #6c2bd9, #4c1a9d);
+  color: #eee;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+footer .socials a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: .3s;
+}
+
+footer .socials a:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 0 10px var(--light);
+}
+
+@media(max-width:768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* ===== Responsive Adjustments (320px – 480px) ===== */
+@media (max-width: 480px) {
+
+  /* Navbar */
+  .menu-btn {
+    font-size: 1.25rem;
+  }
+
+  nav a {
+    margin: .5rem 0;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: .9rem;
+  }
+
+  /* About card (reduce padding)  */
+  #about {
+    padding: 2rem 1rem;
+  }
+
+  /* Projects section */
+  .project-card {
+    width: 200px;
+    padding: .75rem;
+  }
+
+  .project-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Modal image – reduce height so X icon is always visible */
+  .modal-content img {
+    height: 200px;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-close {
+    top: .5rem;
+    right: .5rem;
+  }
+
+  /* Footer */
+  footer .socials {
+    gap: .5rem;
+  }
+
+  footer p {
+    font-size: .8rem;
+  }
+
+  /* Sticky background fallback (disable on very small devices) */
+  .about-section::before,
+  .projects-section::before {
+    display: none;
+  }
+}
+

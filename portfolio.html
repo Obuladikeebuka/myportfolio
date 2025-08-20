@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="body-about-bg"></div>
+<header>
+<div class="logo">Ebuka</div>
+<nav id="nav">~
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+<section id="home" class="hero">
+<h1><span class="emoji">👋</span> Hi, I'm <span class="highlight">Ebuka Obuladike</span></h1>
+<p>A Front‑End Web Developer</p>
+</section>
+
+<section id="about" class="about-section section">
+  <div class="about-content">
+    <h2>About Me</h2>
+    <p>I'm a front-end developer with a secret weapon: a background in product management. This means I don't just bring designs to life—I help bring ideas to life. I'm obsessed with the entire journey, from that initial spark to a functional, impactful product that people actually enjoy using.
+
+    My process is all about iteration. I use my go-to tools—React for building structured, dynamic components and Tailwind CSS for crafting sleek, modern interfaces—to build fast, test assumptions, and refine until the experience is truly awesome. I'm passionate about that sweet spot where solid code meets user-centric design.
+
+    I'm always tinkering and learning, but now I'm looking for a team where I can contribute this unique blend of skills. I want to collaborate on meaningful products, bridge the gap between concept and execution, and build things that make a difference.
+</p>
+  </div>
+</section>
+
+
+
+<section id="skills" class="skills-section-carousel section">
+  <div class="skills-carousel-track">
+    <div class="skill-slide">
+      <img src="/assets/images/html.jpg" alt="HTML5" />
+      <h3>HTML5</h3>
+      <p>Semantic markup and accessibility</p>
+    </div>
+
+    <div class="skill-slide">
+      <img src="/assets/images/css3.png" alt="CSS3" />
+      <h3>CSS3</h3>
+      <p>Flexbox, Grid and responsive design</p>
+    </div>
+
+    <div class="skill-slide">
+      <img src="/assets/images/js.png" alt="JavaScript" />
+      <h3>JavaScript</h3>
+      <p>DOM manipulation and ES6 features</p>
+    </div>
+
+    <div class="skill-slide">
+      <img src="/assets/images/tailwind.webp" alt="Tailwind" />
+      <h3>Tailwind CSS</h3>
+      <p>Modern utility-first styling</p>
+    </div>
+
+    <div class="skill-slide">
+      <img src="/assets/images/react-1.svg" alt="React" />
+      <h3>React</h3>
+      <p>Component based organization</p>
+    </div>
+  </div>
+</section>
+
+</section>
+<section id="projects" class="section projects-section ">
+<h2>Projects</h2>
+<button class="carousel-btn left" onclick="scrollLeft()">&#8592;</button>
+<button class="carousel-btn right" onclick="scrollRight()">&#8594;</button>
+<div class="carousel-track">
+<div class="project-card" onclick="openModal('Multi-Step Form','/assets/images/multistep.56.png','Multi-Step Form Layout.','- LocalStorage persistence\n- Task filters\n- Responsive')">
+<img src="/assets/images/multistep.56.png" alt="Multi-Step Form"/>
+<h3>Multi-Step Form</h3>
+</div>
+<div class="project-card" onclick="openModal('Calculator','/assets/images/calculator.38.png','Basic operations with nice UI.','- Animated buttons\n- Responsive Layout')">
+<img src="/assets/images/calculator.38.png" alt="Calc"/>
+<h3>Calculator</h3>
+</div>
+<div class="project-card" onclick="openModal('Internsify Landing Page','/assets/images/internsify.png','A sleek landing page for Internsify Africa.','- Animated buttons\n- Responsive Layout')">
+<img src="/assets/images/internsify.png" alt="internsify"/>
+<h3>Internsify Africa</h3>
+</div>
+<div class="project-card" onclick="openModal('Sneakers Product Page','/assets/images/product.50.png','A sneakers product page with cart functionality.','- Animated buttons\n- Responsive Layout')">
+<img src="/assets/images/product.50.png" alt="sneakers"/>
+<h3>Sneakers Product Page</h3>
+</div>
+<div class="project-card" onclick="openModal('Rock Paper Scissors','/assets/images/product.50.png','A Rock Paper Scissors game with Animation.','- Animated buttons\n- Responsive Layout')">
+<img src="/assets/images/rps.34.png" alt="rps"/>
+<h3>Rock Paper Scissors</h3>
+</div>
+</div>
+</section>
+
+
+<section id="contact" class="section">
+<h2>Contact</h2>
+<form action="https://formsubmit.co/obuladikeebuka@gmail.com" method="post">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</section>
+
+
+<div id="projectModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal()">&times;</span>
+<h3 id="modalTitle"></h3>
+<img id="modalImg" style="width:100%; border-radius:10px; margin-bottom:1rem;"/>
+<p id="modalDesc"></p>
+<pre id="modalFeatures" style="white-space:pre-wrap;"></pre>
+<a href="javascript:void(0)" id="modalLink">Visit Project</a>
+</div>
+</div>
+
+
+<footer>
+<div class="socials">
+<a href="https://www.linkedin.com/in/ebuka-obuladike/" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://twitter.com/bukaxs" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="mailto:obuladikeebuka@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+</div>
+<p>&copy;2025 Ebuka. All rights reserved.</p>
+</footer>
+  <script src="portfolio.js"></script>
+</body>
+</html>
