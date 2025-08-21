@@ -23,12 +23,12 @@ function toggleMenu() {
 }
 
 // Modal functions
-function openModal(title, img, desc, features) {
+function openModal(title, img, desc, features, link) {
   document.getElementById("modalTitle").innerText = title;
   document.getElementById("modalImg").src = img;
   document.getElementById("modalDesc").innerText = desc;
   document.getElementById("modalFeatures").innerText = features;
-  document.getElementById("modalLink").href = "javascript:void(0)";
+  document.getElementById("modalLink").href = link;
   document.getElementById("projectModal").style.display = "flex";
 }
 

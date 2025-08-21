@@ -77,23 +77,32 @@
 <section id="projects" class="section projects-section ">
 <h2>Projects</h2>
 <div class="carousel-track">
-<div class="project-card" onclick="openModal('Multi-Step Form','/assets/images/multistep.56.png','Multi-Step Form Layout.','- LocalStorage persistence\n- Task filters\n- Responsive')">
-<img src="/assets/images/multistep.56.png" alt="Multi-Step Form"/>
-<h3>Multi-Step Form</h3>
+<div class="project-card" 
+    onclick="openModal(
+      'Multi-Step Form',
+      '/assets/images/multistep.56.png',
+      'Multi-Step Form Layout.',
+      '- LocalStorage persistence\n- Task filters\n- Responsive',
+      'https://form-green-zeta.vercel.app/')">
+  <img src="/assets/images/multistep.56.png" alt="Multi-Step Form"/>
+  <h3>Multi-Step Form</h3>
 </div>
-<div class="project-card" onclick="openModal('Calculator','/assets/images/calculator.38.png','Basic operations with nice UI.','- Animated buttons\n- Responsive Layout')">
+
+<div class="project-card" onclick="openModal('Calculator','/assets/images/calculator.38.png','Basic operations with nice UI.','- Animated buttons\n- Responsive Layout','https://calculator-xi-swart-43.vercel.app/')">
 <img src="/assets/images/calculator.38.png" alt="Calc"/>
 <h3>Calculator</h3>
 </div>
-<div class="project-card" onclick="openModal('Internsify Landing Page','/assets/images/internsify.png','A sleek landing page for Internsify Africa.','- Animated buttons\n- Responsive Layout')">
+<div class="project-card" onclick="openModal('Internsify Landing Page','/assets/images/internsify.png','A sleek landing page for Internsify Africa.','- Animated buttons\n- Responsive Layout','https://internsify-tau.vercel.app/')">
 <img src="/assets/images/internsify.png" alt="internsify"/>
 <h3>Internsify Africa</h3>
 </div>
-<div class="project-card" onclick="openModal('Sneakers Product Page','/assets/images/product.50.png','A sneakers product page with cart functionality.','- Animated buttons\n- Responsive Layout')">
+<div class="project-card" onclick="openModal('Sneakers Product Page','/assets/images/product.50.png','A sneakers product page with cart functionality.','- Animated buttons\n- Responsive Layout',
+'https://productcart-woad.vercel.app/')">
 <img src="/assets/images/product.50.png" alt="sneakers"/>
 <h3>Sneakers Product Page</h3>
 </div>
-<div class="project-card" onclick="openModal('Rock Paper Scissors','/assets/images/product.50.png','A Rock Paper Scissors game with Animation.','- Animated buttons\n- Responsive Layout')">
+<div class="project-card" onclick="openModal('Rock Paper Scissors','/assets/images/product.50.png','A Rock Paper Scissors game with Animation.','- Animated buttons\n- Responsive Layout',
+'https://rps-wine.vercel.app/')">
 <img src="/assets/images/rps.34.png" alt="rps"/>
 <h3>Rock Paper Scissors</h3>
 </div>
@@ -119,7 +128,7 @@
 <img id="modalImg" style="width:100%; border-radius:10px; margin-bottom:1rem;"/>
 <p id="modalDesc"></p>
 <pre id="modalFeatures" style="white-space:pre-wrap;"></pre>
-<a href="javascript:void(0)" id="modalLink">Visit Project</a>
+<a class="btn" id="modalLink" target="_blank">Visit Project</a>
 </div>
 </div>
 
