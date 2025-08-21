@@ -181,7 +181,7 @@ nav a:hover::after {
   overflow: hidden;
   z-index: 1;
   color: white;
-  background: linear-gradient(to bottom, #6c2bd9, #4c1a9d);
+  background: linear-gradient(to bottom, transparent, #6c2bd9);
 }
 
 .about-section::before {
@@ -206,7 +206,8 @@ nav a:hover::after {
 
 .about-content h2{
   text-decoration: underline;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-style: oblique;
 }
 
 
@@ -220,7 +221,7 @@ nav a:hover::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
   z-index: 0;
 }
@@ -246,29 +247,10 @@ nav a:hover::after {
   background: linear-gradient(to right, var(--primary), var(--primary-dark));
 }
 
-.skill.visible .bar.html {
-  width: 90%;
-}
-
-.skill.visible .bar.css {
-  width: 80%;
-}
-
-.skill.visible .bar.js {
-  width: 60%;
-}
-
-.skill-bar {
-  background: #ddd;
-  border-radius: 30px;
-  overflow: hidden;
-  height: 15px;
-}
-
 
 .skills-section-carousel {
-  background: var(--primary-dark);
-  color: #fff;
+  background: linear-gradient(to bottom, #6c2bd9, transparent);
+  color: rgba(0, 0, 0, 0.75);
   overflow: hidden;
 }
 
