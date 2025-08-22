@@ -636,7 +636,7 @@ footer .socials a:hover {
     font-size: 1.5rem;
     white-space: normal;
     border-right: none;
-    canimation: none;
+    animation: none;
   }
 
   .hero p {
