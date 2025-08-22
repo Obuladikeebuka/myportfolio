@@ -168,7 +168,7 @@ nav a:hover::after {
   opacity: 0;
   transform: translateY(40px);
   transition: .6s;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 100px;
 }
 
 
@@ -557,10 +557,43 @@ footer .socials a:hover {
 }
 
 @media(max-width:768px) {
+  header {
+      padding: 1rem;
+      position: fixed;
+      background: var(--primary);
+    }
+
+  header.scrolled {
+      background: var(--primary);
+    }
+  
   nav {
     display: none;
+    position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+      background: var(--primary);
     flex-direction: column;
+    padding: 1.5rem 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      max-height: 60vh;
   }
+
+  nav a {
+      margin: 0.5rem 0;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+  nav a:last-child {
+      border-bottom: none;
+    }
 
   nav.active {
     display: flex;
@@ -568,6 +601,22 @@ footer .socials a:hover {
 
   .menu-btn {
     display: block;
+    z-index: 1001;
+  }
+
+  .hero {
+      padding-top: 100px;
+    
+    }
+
+  html {
+      scroll-padding-top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+  .section {
+    scroll-margin-top: 80px;
   }
 }
 
@@ -584,7 +633,10 @@ footer .socials a:hover {
   }
 
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    white-space: normal;
+    border-right: none;
+    canimation: none;
   }
 
   .hero p {
