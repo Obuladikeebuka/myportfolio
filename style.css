@@ -5,6 +5,10 @@
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 6rem;
+}
+
 :root {
   --primary: #6c2bd9;
   --primary-dark: #4c1a9d;
@@ -158,12 +162,13 @@ nav a:hover::after {
   max-width: 1100px;
   margin: 5rem auto;
   padding: 3rem 2rem;
-  background: var(--light); 
+  background: var(--light);
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(40px);
   transition: .6s;
+  scroll-margin-top: 80px;
 }
 
 
@@ -249,8 +254,8 @@ nav a:hover::after {
 
 
 .skills-section-carousel {
-  background: linear-gradient(to bottom, #6c2bd9, transparent);
-  color: rgba(0, 0, 0, 0.75);
+  background: linear-gradient(to bottom, transparent, #6c2bd9);
+  color: #FFFFFF;
   overflow: hidden;
 }
 
@@ -313,6 +318,14 @@ nav a:hover::after {
   padding-bottom: 1rem;
 }
 
+#projects h2{
+  color: black;
+  text-decoration: underline;
+  margin-bottom: 2px;
+  font-style: oblique;
+  background-color: linear-gradient(to bottom, #6c2bd9, transparent);
+}
+
 
 .project-card img {
   width: 120px;
@@ -358,7 +371,7 @@ nav a:hover::after {
   scroll-snap-align: center;
   flex: 0 0 auto;
   width: 250px;
-  background: #fafafa;
+  background: linear-gradient(to bottom, transparent, #6c2bd9);;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -370,9 +383,14 @@ nav a:hover::after {
   text-align: center;
 }
 
+.project-card h3{
+  color: #F2F2F2;
+  margin-top: 5px;
+}
+
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -419,6 +437,47 @@ nav a:hover::after {
   width: 90%;
   text-align: left;
   animation: scaleIn .4s ease both;
+}
+
+#modalLink {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#modalLink:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#modalLink:active {
+  transform: translateY(0);
+}
+
+.modal-close{
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s ease;
+}
+
+.modal-close:hover{
+  cursor: pointer;
+  color: #4c1a9d;
 }
 
 @keyframes scaleIn {
